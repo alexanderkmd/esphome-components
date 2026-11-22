@@ -142,7 +142,7 @@ public:
     if (!this->is_update_requested_ || this->state_ != MYHOMEIOT_IDLE || device.address_uint64() != this->address_ || services.empty())
       return false;
 
-    ESP_LOGD(TAG, "[%s] Found device. RSSI: %d", device.address_str().c_str(), device.get_rssi());
+    ESP_LOGD(TAG, "[%s] Found device. RSSI: %d", device.address_str_to().c_str(), device.get_rssi());
     memcpy(this->remote_bda_, device.address(), sizeof(this->remote_bda_));
     this->state_ = MYHOMEIOT_DISCOVERED;
     this->rssi_ = device.get_rssi();
