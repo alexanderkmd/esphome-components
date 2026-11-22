@@ -200,14 +200,14 @@ public:
       snprintf(buffer, sizeof(buffer), SENSOR_ID, i + 1, "alert_select");
       alert_select[i]->set_object_id(strdup(buffer));
 #endif
-      App.register_component(alert_select[i]);
+      App.register_component_(alert_select[i]);
       App.register_select(alert_select[i]);
 
       // ble-клиент
       ble_client[i] = new myhomeiot_ble_client2::MyHomeIOT_BLEClient2();
       ble_client[i]->set_address(mac_addresses_[i]);
       ble_client[i]->set_update_interval(update_interval);
-      App.register_component(ble_client[i]);
+      App.register_component_(ble_client[i]);
 
       // сервисы ble-клиента
       myhomeiot_ble_client2::MyHomeIOT_BLEClientService *serv_bat = new myhomeiot_ble_client2::MyHomeIOT_BLEClientService();
